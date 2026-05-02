@@ -1,42 +1,58 @@
+
 import express from "express";
-import mysql from "mysql2";
+import mysql from "mysql2/promise";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const app = express();
 
-// Database Configuration
-const dbConfig = {
-    host: process.env.MYSQL_HOST || "pg-6854f7b-mysqllabproject.h.aivencloud.com", 
-    user: process.env.MYSQL_USER || "avnadmin",
-    password: process.env.MYSQL_PASSWORD || "AVNS_8YdQCbT_NTgO9cgycp5",
-    database: process.env.MYSQL_DATABASE || "defaultdb",
-    port: process.env.MYSQL_PORT || 26147,
-    ssl: {
-        rejectUnauthorized: false // REQUIRED for Aiven
-    }
-};
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-const db = mysql.createConnection(dbConfig);
+app.use(express.json());
 
-// Connect to Database
-db.connect((err) => {
-    if (err) {
-        console.error("Database connection failed: " + err.stack);
-        return;
-    }
-    console.log("MySQL connected successfully");
+// Database pool
+const pool = mysql.createPool({
+  host: process.env.pg-6854f7b-mysqllabproject.h.aivencloud.com,
+  user: process.env.avnadmin,
+  password: process.env.AVNS_8YdQCbT_NTgO9cgycp5,
+  database: process.env.defaultdb,
+  port: Number(process.env.MYSQL_PORT) || 26147,
+  ssl: {
+    rejectUnauthorized: false
+  },
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
 });
 
-// Routes
-app.get("/", (req, res) => {
-    db.query("SELECT NOW()", (err, result) => {
-        if (err) {
-            return res.status(500).send("Database query failed: " + err.message);
-        }
-        res.send("Database Connected Successfully: " + result[0]["NOW()"]);
+// Test database here, NOT on "/"
+app.get("/api/db-test", async (req, res) => {
+  try {
+    const [rows] = await pool.query("SELECT NOW() AS now");
+    res.json({
+      success: true,
+      time: rows[0].now
     });
+  } catch (err) {
+    console.error("Database query failed:", err);
+    res.status(500).json({
+      success: false,
+      error: err.message
+    });
+  }
+});
+
+// Serve React/Vite website
+app.use(express.static(path.join(__dirname, "dist")));
+
+// React fallback route
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
 const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
-    console.log("Server running on port " + PORT);
+  console.log("Server running on port " + PORT);
 });
