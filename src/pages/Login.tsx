@@ -27,11 +27,17 @@ export const Login: React.FC = () => {
             <p className="mt-3 text-blue-100 text-sm">Boarding House Management System</p>
           </div>
           <div className="space-y-3 text-sm">
+
+
+            
             <div className="flex items-center gap-2"><span>✅</span> Manage rooms & tenant assignments</div>
             <div className="flex items-center gap-2"><span>✅</span> Track bills, payments & history</div>
             <div className="flex items-center gap-2"><span>✅</span> Handle maintenance requests</div>
             <div className="flex items-center gap-2"><span>✅</span> Real-time notifications</div>
           </div>
+
+
+          
           <div className="text-xs text-blue-200">© 2026 Madaje's Boarding House</div>
         </div>
 
@@ -61,9 +67,6 @@ export const Login: React.FC = () => {
             <div className="space-y-1 text-xs">
               <button type="button" onClick={() => fill("admin@madaje.com", "admin123")} className="block w-full text-left px-2 py-1 rounded hover:bg-white">
                 <span className="font-semibold text-blue-700">Admin:</span> admin@madaje.com / admin123
-              </button>
-              <button type="button" onClick={() => fill("juan@tenant.com", "tenant123")} className="block w-full text-left px-2 py-1 rounded hover:bg-white">
-                <span className="font-semibold text-green-700">Tenant:</span> juan@tenant.com / tenant123
               </button>
             </div>
           </Card>
