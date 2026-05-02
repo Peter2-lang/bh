@@ -1,4 +1,3 @@
-
 import express from "express";
 import mysql from "mysql2/promise";
 import path from "path";
@@ -13,11 +12,11 @@ app.use(express.json());
 
 // Database pool
 const pool = mysql.createPool({
-  host: process.env.pg-6854f7b-mysqllabproject.h.aivencloud.com,
-  user: process.env.avnadmin,
-  password: process.env.AVNS_8YdQCbT_NTgO9cgycp5,
-  database: process.env.defaultdb,
-  port: Number(process.env.MYSQL_PORT) || 26147,
+  host: process.env.MYSQL_HOST,
+  user: process.env.MYSQL_USER,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DATABASE,
+  port: Number(process.env.MYSQL_PORT) || 3306,
   ssl: {
     rejectUnauthorized: false
   },
@@ -26,12 +25,13 @@ const pool = mysql.createPool({
   queueLimit: 0
 });
 
-// Test database here, NOT on "/"
+// Database test route only
 app.get("/api/db-test", async (req, res) => {
   try {
     const [rows] = await pool.query("SELECT NOW() AS now");
     res.json({
       success: true,
+      message: "Database connected successfully",
       time: rows[0].now
     });
   } catch (err) {
