@@ -30,9 +30,10 @@ export const Login: React.FC = () => {
 
 
             
-            <div className="flex items-center"> web-based platform designed to help manage the daily operations of Madaje's Boarding House. 
-              <br> It allows administrators to organize room assignments, monitor tenants, <br>track bills and payments, manage maintenance requests, 
-                <br> and send real-time notifications for smoother and more efficient boarding house management</div>
+            <div className="flex items-center"> web-based platform designed to help manage the daily operations of Madaje's Boarding House. </br>
+              <br> It allows administrators to organize room assignments, monitor tenants, <br>track bills and payments, manage maintenance requests, </br>
+                <br> and send real-time notifications for smoother and more efficient boarding house management </br>
+                </div>
 
 
           
