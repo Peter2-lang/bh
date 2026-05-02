@@ -23,18 +23,16 @@ export const Login: React.FC = () => {
         {/* Left brand panel */}
         <div className="hidden md:flex flex-col justify-between p-10 bg-gradient-to-br from-blue-700 to-indigo-800 text-white">
           <div>
-            <div className="text-3xl font-extrabold tracking-tight">🏠 Madaje's BHMS</div>
-            <p className="mt-3 text-blue-100 text-sm">Boarding House Management System</p>
+            <div className="text-3xl font-extrabold tracking-tight">🏠 Madaje's Boarding House</div>
+            <p className="mt-3 text-blue-100 text-sm">Poblacion Hinunangan Southern Leyte</p>
           </div>
           <div className="space-y-3 text-sm">
 
 
             
-            <div className="flex items-center gap-2"><span>✅</span> Manage rooms & tenant assignments</div>
-            <div className="flex items-center gap-2"><span>✅</span> Track bills, payments & history</div>
-            <div className="flex items-center gap-2"><span>✅</span> Handle maintenance requests</div>
-            <div className="flex items-center gap-2"><span>✅</span> Real-time notifications</div>
-          </div>
+            <div className="flex items-center"> web-based platform designed to help manage the daily operations of Madaje's Boarding House. 
+              <br> It allows administrators to organize room assignments, monitor tenants, <br>track bills and payments, manage maintenance requests, 
+                <br> and send real-time notifications for smoother and more efficient boarding house management</div>
 
 
           
