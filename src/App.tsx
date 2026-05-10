@@ -990,7 +990,7 @@ function App() {
                     MB
                   </div>
                   <div>
-                    <p className="text-sm uppercase tracking-[0.35em] text-stone-600">Boarding House System</p>
+                    
                     <p className="text-lg font-semibold text-stone-950">{propertyProfile.name}</p>
                   </div>
                 </div>
