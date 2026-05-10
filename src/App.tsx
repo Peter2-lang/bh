@@ -284,10 +284,10 @@ function App() {
 
   const [propertyProfile, setPropertyProfile] = useState<PropertyProfile>({
     name: "Madaje's Boarding House",
-    address: "Riverside Street, Barangay Mabini",
-    manager: "Mariel Daje",
-    phone: "0918 234 8899",
-    notes: "Quiet, clean, and close to school routes.",
+    address: "San Pedro Street, Barangay Poblacion Hinunangan Southern Leyte",
+    manager: "Roberto Madaje Jr.",
+    phone: "",
+    notes: "Quiet, clean, and close to school routes and Work Place",
   });
 
   const [rooms, setRooms] = useState<Room[]>(initialRooms);
