@@ -189,7 +189,6 @@ const initialTenants: Tenant[] = [
 
 const initialAccounts: Account[] = [
   { id: "acct-admin", role: "admin", username: "admin", password: "admin123" },
-  { id: "acct-tenant-ana", role: "tenant", username: "ana", password: "tenant123", tenantId: "tenant-ana" },
   { id: "acct-tenant-miguel", role: "tenant", username: "miguel", password: "tenant123", tenantId: "tenant-miguel" },
 ];
 
