@@ -283,8 +283,8 @@ function App() {
 
   const [propertyProfile, setPropertyProfile] = useState<PropertyProfile>({
     name: "Madaje's Boarding House",
-    address: "San Pedro Street, Barangay Poblacion Hinunangan Southern Leyte",
-    manager: "Roberto Madaje Jr.",
+    address: "San Pedro Street, Barangay Poblacion Southern Leyte",
+    manager: "Roberto Smith.",
     phone: "",
     notes: "Quiet, clean, and close to school routes and Work Place",
   });
